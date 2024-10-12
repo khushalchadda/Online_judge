@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block body_block %}
+
+<h1 style="font-family: Georgia, 'Times New Roman', Times, serif;"> {{selected_problem.problem_code}}</h2>
+
+<div class="card ">
+    <div class="card-body">
+        <p style="color:black;">
+            {{ selected_problem.problem_description}}
+        </p>
+        <a href="/submit/{{selected_problem.problem_code}}" style="color: blue;">start coding </a>  </div>
+  </div>
+
+
+
+
+  
+{% endblock %}

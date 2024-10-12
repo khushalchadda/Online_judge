@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+
+{% block body_block %}
+
+<h2 style="font-family: Georgia, 'Times New Roman', Times, serif;"> Welcome to codegym! </h2>
+
+<h2 style="font-family: Georgia, 'Times New Roman', Times, serif;"> PROBLEMS</h2>
+
+  <table class="table table-striped text-align table-hover ">
+    <thead>
+      <tr>
+        <th scope="col"> # </th>
+        <th scope="col">Problem_Code</th>
+        <th scope="col">Difficulty</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        {% for problem in prob_list %}
+        <td>{{forloop.counter}}</td>
+      
+     <td> <a href="/add/prob/{{problem.problem_code}}" style="color: black;">{{problem }} </a> </td>
+    {% if problem.diff == "easy" %}
+    <td style="color:green; font-weight: bolder;"> {{problem.diff}}   </td>
+</tr>   
+    {% elif problem.diff == "medium" %}
+    
+    <td style="color:rgb(255,192,30); font-weight: bolder;"> {{problem.diff}}   </td>
+</tr>   
+    {% elif problem.diff == "hard" %}
+    <td style="color:rgb(255, 55, 95); font-weight: bolder;"> {{problem.diff}}   </td>
+     
+</tr>   
+    {%endif%}
+    {%endfor%}
+       
+      </tr>
+    </tbody>
+  </table>
+
+{% endblock %}

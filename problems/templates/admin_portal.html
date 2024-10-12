@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body_block %}
+
+<div class= "col-6 mx-auto card p-3 shadow-lg" id="one" style="color:black;">
+
+<p style="color:black;">
+
+	<p><a href="/add" style="color:black;">add_problems</a></p>
+		<p><a href="/add/add_cases" style="color:black;">add_testcases</a></p>
+		<p><a href="/add/list" style="color:black;">list problems</a></p>	
+			{% if user.is_authenticated %}
+				<p><a href="/setup/logout" style="color:black;">logout</a></p>
+				<p><a href="/setup/start_contest" style="color:black;">start_contest</a></p>
+	
+				{% else %}
+				<p><a href="/setup/login" style="color:black;">staff_login</a></p>
+				{% endif %}
+
+
+				{% if success %}
+				<p style="color:rgba(80, 255, 0, 0.534); background-color:rgba(145, 247, 50, 0)">{{ success }}</p>
+				{% endif %}
+
+</p>
+</div>
+{% endblock %}

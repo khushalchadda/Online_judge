@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body_block %}
+
+<div style="margin:150px 150px 150px 150px;border:solid blue 1px;">
+	
+	<form class= "col-6 mx-auto card p-3 shadow-lg" enctype="multipart/form-data" id="problem" method="post" action=""  >
+		{% csrf_token %}
+			{% for field in form.visible_fields %}
+				<p style="color:rgb(7, 7, 7);">{{ field.errors }}
+					{{ field.help_text }}
+					{{ field.name }}&nbsp;&nbsp;&nbsp;&nbsp;{{ field }} <br/>
+				</p>
+			{% endfor %}
+	
+		<input type="submit" name="submit" value="ADD_PROBLEM">
+
+	</form>
+
+	
+
+	{% if errors %}
+	<p>{{ errors }}</p>
+	{% endif %}
+
+</div>
+{% endblock %}
