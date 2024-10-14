@@ -30,11 +30,11 @@ def runfn(request,problem_code):
             desired_output=testcase.test_output
             sm = difflib.SequenceMatcher(None,output, desired_output)
             ratio = sm.ratio() * 100
-            print(f"Similarity: {ratio:.2f}%")
+            print(f"Similarity: {ratio:.2f}%")  
 
 
-            desired_output=desired_output.splitlines()
-            output=output.splitlines()
+            desired_output=desired_output.split()
+            output=output.split()
             
             print(result)
             print("------\n")
@@ -47,10 +47,10 @@ def runfn(request,problem_code):
             print(len(output))
             print(output)
             if(output==desired_output):
-                print("accepted")
+                result="ACCEPTED"
             else:
-                print("wrong answer")            
-            return render(request, "result.html", {"submission": submission})
+                result="WRONG ANSWER"           
+            return render(request, "result.html", {"submission": submission,"result":result})
     else:
         form = submissionform()
     return render(request, "index2.html", {"form": form})
